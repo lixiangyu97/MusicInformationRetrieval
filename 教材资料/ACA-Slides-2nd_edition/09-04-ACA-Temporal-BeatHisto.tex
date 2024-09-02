@@ -1,0 +1,173 @@
+% move all configuration stuff into includes file so we can focus on the content
+\input{include}
+
+
+\subtitle{module 9.4: beat histogram}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    % generate title page
+	\input{include/titlepage}
+
+    \section[overview]{lecture overview}
+        \begin{frame}{introduction}{overview}
+            \begin{block}{corresponding textbook section}
+                    %\href{http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6331123}{Chapter 6~---~Temporal Analysis}: pp.~133--135
+                    section~9.4
+            \end{block}
+
+            \begin{itemize}
+                \item   \textbf{lecture content}
+                    \begin{itemize}
+                        \item   introduction of the beat histogram
+                        \item   low level features used to describe rhythmic properties
+                    \end{itemize}
+                \bigskip
+                \item<2->   \textbf{learning objectives}
+                    \begin{itemize}
+                        \item   explain the terms beat histogram and beat spectrum and how they related to each other
+                        \item   describe two low level features derived from the beat spectrum and discuss their musical meaning and limits
+                    \end{itemize}
+            \end{itemize}
+            \inserticon{directions}
+        \end{frame}
+
+    \section[intro]{introduction}
+        \begin{frame}{beat histogram}{problem statement}
+            \begin{itemize}
+                \item previously introduced low-level features not suitable for temporal or rhythm description
+                \item   onset, beat, and downbeat detection either error prone or complicated
+                \bigskip
+                \item[$\Rightarrow$]   ``robust'' low level representation focused on tempo and rhythm:\\
+                \smallskip
+                \textbf{beat histogram/spectrum}
+            \end{itemize}
+        \end{frame}
+        
+        \section[beat histogram]{beat histogram}
+            \begin{frame}{beat histogram}{introduction}
+                \textbf{beat spectrum} or \textbf{beat histogram}: 
+                \begin{itemize}
+                    \item   x-axis (BPM or inter-onset-time)
+                    \item   y-axis ('strength' of periodicity or number of occurrences)
+                    \bigskip
+                    \item   compact representation of periodicities
+                \end{itemize}
+                \figwithmatlab{BeatHistogram}
+            \end{frame}
+            \begin{frame}{beat histogram}{input}
+                \begin{columns}[T]
+                    \column{.55\linewidth}
+                        \begin{enumerate}
+                            \item<1->   option 1: novelty function
+                                \begin{itemize}
+                                    \item   time domain features: envelope, rms
+                                    \item   spectral differences: flux, ...
+                                    \item   any other feature meaningful for rhythm description
+                                \end{itemize}
+                            \bigskip
+                            \item<1->   option 2: series of onset times
+                        \end{enumerate}
+                    \column{.45\linewidth}
+                        \begin{figure}
+                            \centering
+                                \includegraphics[scale=.25]{graph/lykartsis_beathistogram}
+                        \end{figure}
+                \end{columns}
+                
+                \flushright{graph from \footfullcite{lykartsis_rhythm_2015}}
+            \end{frame}
+            
+            \begin{frame}{beat histogram}{transform}
+                    \begin{enumerate}
+                        \item<1->   option 1: frequency transform
+                            \begin{itemize}
+                                \item   magnitude spectrum
+                                \item   filterbank
+                            \end{itemize}
+                        \bigskip
+                        \item<1->   option 2: ACF
+                            \begin{itemize}
+                                \item   ACF maxima indicate periodicity periods
+                            \end{itemize}
+                        \bigskip
+                        \item<1->   option 3: histogram
+                            \begin{itemize}
+                                \item   measure Inter-Onset-Intervals (IOIs)
+                                \item   sort them into bins and plot number of occurrences
+                            \end{itemize}
+                    \end{enumerate}
+            \end{frame}
+            
+        \section[features]{beat histogram features}
+            \begin{frame}{beat histogram}{feature examples}
+                \vspace{-5mm}
+                \begin{columns}
+                \column{.5\linewidth}
+                \begin{itemize}
+                    \item	\textbf{statistical features} 
+                        \begin{itemize}
+                            \item mean, centroid, standard deviation, kurtosis, \ldots
+                        \end{itemize}
+                    \smallskip
+                    \item<2->   \textbf{peak features}
+                        \begin{itemize}
+                            \item   value and position of absolute max
+                            \item   ratio (value and position) of strongest and 2nd strongest peaks
+                        \end{itemize}
+                    \smallskip
+                    \item<3->	\textbf{other features}
+                        \begin{itemize}
+                            \item   flatness, crest, high frequency content, MFCCs (??),\ldots
+                            \item   features from ACF of beat histogram
+                            
+                        \end{itemize}
+                \end{itemize}
+                \column{.5\linewidth}
+                      \only<3->{  \begin{figure}\centering\includegraphics[scale=.2]{graph/burred_acfofbeathisto}\end{figure}}
+                \end{columns}   
+                
+                
+                \only<3->{  \flushright plot from \footfullcite{burred_hierarchical_2004}}
+            \end{frame}
+
+            \begin{frame}{rhythm description}{open questions}
+                \begin{itemize}
+                    \item   what are the salient perceptual properties of rhythm?
+                    \smallskip
+                    \item   what rhythms are perceptually similar?
+                    \smallskip
+                    \item   should a rhythm description be tempo dependent or not?
+                    \smallskip
+                    \item   what role does micro-timing play?
+                    \smallskip
+                    \item   should rhythm descriptors be normalized to bar length?
+                \end{itemize}
+            \end{frame}
+
+    
+    \section{summary}
+        \begin{frame}{summary}{lecture content}
+            \begin{itemize}
+                \item   \textbf{beat histogram or spectrum}
+                    \begin{itemize}
+                        \item   some frequency domain representation of  novelty/ onsets
+                        \item   usually characterizing the periodicities
+                    \end{itemize}
+                \bigskip
+                \item   \textbf{beat histogram features}
+                    \begin{itemize}
+                        \item   low level features characterizing the beat spectrum
+                        \item   often statistical descriptors
+                        \item   easy to extract but limited meaning
+                    \end{itemize}
+                \bigskip
+                \item   \textbf{usefulness of the beat histogram}
+                    \begin{itemize}
+                        \item   relatively compact representation of periodicity
+                        \item   lacks phase $\rightarrow$ not a good rhythm description
+                    \end{itemize}
+            \end{itemize}
+            \inserticon{summary}
+        \end{frame}
+\end{document}

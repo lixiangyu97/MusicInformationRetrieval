@@ -1,0 +1,195 @@
+% move all configuration stuff into include file so we can focus on the content
+\input{include}
+
+\subtitle{module 0.0: course introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    % generate title page
+	\input{include/titlepage}
+
+    \section[about]{about alexander lerch}
+        \begin{frame}{introduction}{about alexander lerch}
+            \begin{itemize}
+                \item   \textbf{education}
+                    \begin{itemize}
+                        \item   Electrical Engineering (Technical University Berlin)
+                        \item   Tonmeister (University of Arts Berlin)
+                    \end{itemize}
+        \smallskip
+                \item   \textbf{professional}
+                    \begin{itemize}
+                        \item   Associate Professor at the \href{https://music.gatech.edu}{Georgia Tech}
+                        \item   previous: CEO at \href{https://www.zplane.de}{zplane.development}
+                    \end{itemize}
+        \smallskip
+                \item   \textbf{research focus}
+                    \begin{itemize}
+                        \item   Music Information Retrieval (MIR)
+                        \item   Audio Content Analysis
+                        \item   Audio Signal Processing
+                        \item   Music Performance Analysis
+                        \item   Music Generation
+                    \end{itemize}
+            \end{itemize}
+            
+            \addreference{links to optional resources will appear here $\rightarrow$ \href{https://www.linkedin.com/in/lerch}{Lerch's online profile}}
+            \inserticon{person}
+        \end{frame}
+
+    \section[course intro]{course introduction}
+        \begin{frame}{introduction}{course introduction}
+            Audio Content Analysis and Music Information Retrieval (MIR):
+            \begin{itemize}
+                \item   extract and infer descriptors from music signals
+                \item   answers questions and tasks such as
+                    \begin{itemize}
+                        \item   ``What is the tempo/key/mood of this song?''
+                        \item   ``Transcribe this signal into a musical score.''
+                        \item   \ldots
+                    \end{itemize}
+                \bigskip
+                \item<2->   MIR is commercially interesting for, e.g.,
+                    \begin{itemize}
+                        \item   music recommendation
+                        \item   music identification
+                        \item   intelligent music production
+                        \item   automatic music generation
+                    \end{itemize}
+            \end{itemize}
+        \end{frame}
+        
+    \section[course goals]{course goals}
+        \begin{frame}{introduction}{course goals}
+            after successful completion of this course, you will
+            \smallskip
+            \begin{enumerate}
+                \item   have a good \textbf{overview of typical tasks} in MIR
+                \item   \textbf{understand algorithmic approaches} in a large variety of basic MIR systems
+                \item   be able to \textbf{implement MIR systems} in Matlab/Python
+                \item   be able to \textbf{formally evaluate} systems with common datasets and metrics
+            \end{enumerate}
+            \inserticon{goal}
+        \end{frame}
+        
+    \section[course overview]{course overview}
+        \begin{frame}{introduction}{course overview}
+            \begin{enumerate}
+                \item   Introduction to ACA and MIR
+                \item   Fundamentals
+                    \begin{itemize}
+                        \item   Signals \& Pre-Processing
+                        \item   Input Representations
+                        \item   Inference
+                        \item   Data \& Evaluation
+                    \end{itemize}
+                \item   Music Transcription
+                    \begin{itemize}
+                        \item   Tonal Analysis (Pitch, Key, ...)
+                        \item   Analysis of Intensity
+                        \item   Temporal Analysis (Onset, Beats, Structure, ...)
+                        \item   Alignment
+                    \end{itemize}
+                \item   Music Identification \& Classification
+                    \begin{itemize}
+                        \item    Audio Fingerprinting
+                        \item   Classification: Genre, Similarity, Mood, Instrument
+                        \item   Music Performance Assessment
+                    \end{itemize}
+            \end{enumerate}
+            \inserticon{directions}
+        \end{frame}
+        
+    \section[course prerequisites]{course prerequisites}
+        \begin{frame}{introduction}{prerequisites}
+            \begin{itemize}
+                \item   basic knowledge in \textbf{DSP}
+                    \begin{itemize}
+                        \item signals \& systems, block diagrams, linear algebra, \ldots
+                    \end{itemize}
+                \bigskip
+                \item	familiarity with \textbf{Matlab and Python} 
+                    \begin{itemize}
+                        \item   scripting and functions, file I/O, \ldots
+                    \end{itemize}
+                \bigskip
+                \item	helpful: knowledge of \textbf{machine learning} concepts
+                    \begin{itemize}
+                        \item   classification \& regression, training and testing, evaluation metrics
+                    \end{itemize}
+            \end{itemize}
+            \inserticon{nailingit}
+        \end{frame}
+
+    \section[course materials]{course materials}
+        \begin{frame}{introduction}{course materials \& resources}
+            \vspace{-4mm}
+            \begin{columns}[T]
+                \column{.8\textwidth}
+                    \begin{itemize}
+                        \item   \textbf{text book}: ``An Introduction to Audio Content Analysis'':
+                        
+                            
+                            \begin{itemize}
+                                \item   \href{\IEEELink}{2nd edition}
+                                \item   \href{https://ieeexplore.ieee.org/servlet/opac?bknumber=6266785}{1st edition}
+                            \end{itemize}
+
+                        \smallskip
+                        \item<2->  \textbf{optional reading}
+                            
+                            \begin{itemize}
+                                \item   \footnotesize Mueller, M. ``Fundamentals of Music Processing''. Springer (2015)
+                                \item   \footnotesize Klapuri, A. and Davy, M. (Eds.) ``Signal Processing Methods for Music Transcription''. Springer (2006)
+                            \end{itemize}
+                            \normalsize
+
+                        \smallskip
+                        \item<3->   \textbf{online resources} @AudioContentAnalysis.org: 
+                            \begin{itemize}
+                                \item   \href{https://github.com/alexanderlerch/ACA-Slides}{slides} \& \href{https://www.AudioContentAnalysis.org/class}{videos} of previous classes
+                                \item   datasets
+                                \item   code (\href{https://github.com/alexanderlerch/ACA-Code}{matlab}, \href{https://github.com/alexanderlerch/pyACA}{python}, \href{https://github.com/alexanderlerch/libACA}{C++})
+                            \end{itemize}
+                        \smallskip
+                        \item<4->   \textbf{needed software}: Python 3, (Matlab)
+                    \end{itemize}
+                \column{.2\textwidth}
+                     \href{\IEEELink}{\includegraphics[scale=.25]{graph/cover_aca_v2}}
+                    \vspace{40mm}
+             \end{columns}
+            \addreference{\href{https://www.AudioContentAnalysis.org}{www.AudioContentAnalysis.org}}
+       \end{frame}
+
+    \section[grades]{grading}
+        \begin{frame}{introduction}{grading}
+            \vspace{-4mm}
+            \begin{itemize}
+                \item \textbf{grades}
+                    \begin{table}
+                    \begin{tabular}{lll}
+                        %\textbf{quizzes} & 20\%\\
+                        %\textbf{exercises} & 20\%\\
+                        \textbf{exercises \& assignments} & 45\%\\
+                        \textbf{exercises \& participation} & 10\%\\
+                        \textbf{project} & 45\% \\
+                        \quad presentation (proposal) & 5\%\\
+                        \quad presentation (midterm) & 5\%\\
+                        \quad presentation (final) & 5\%\\
+                        \quad paper & 10\%\\
+                        \quad algorithmic design and implementation & 20\%\\
+                    \end{tabular}   
+                    \end{table}
+            
+                \smallskip
+                \item<2->   \textbf{bonus points} for finding errors in the book or in the slides added to the assignment grade of your choice
+                    \begin{itemize}
+                        \item   typos: 0.5 points
+                        \item   language: 1 point
+                        \item   misleading or incomplete statements: 2 points
+                        \item   wrong statements and errors in equations: 3 points
+                    \end{itemize}
+            \end{itemize}
+        \end{frame}
+\end{document}
+
